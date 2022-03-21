@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home_graph"
+    app:startDestination="@id/promotionsFragment">
+    <fragment
+        android:id="@+id/firstNavFragment"
+        android:name="com.component.pharma.ui.home.firstpage.FirstNavFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_first_nav" >
+        <action
+            android:id="@+id/action_firstNavFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/secondNavFragment"
+        android:name="com.component.pharma.ui.upload.UploadFragment"
+        android:label="Upload prescription"
+        tools:layout="@layout/fragment_upload" />
+    <fragment
+        android:id="@+id/thirdNavFragment"
+        android:name="com.component.pharma.ui.home.thirdpage.ThirdNavFragment"
+        android:label="fragment_third_nav"
+        tools:layout="@layout/fragment_third_nav" >
+        <action
+            android:id="@+id/action_thirdNavFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_thirdNavFragment_to_notificationFragment"
+            app:destination="@id/notificationFragment" />
+        <action
+            android:id="@+id/action_thirdNavFragment_to_ordersFragment"
+            app:destination="@id/ordersFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fourthNavFragment"
+        android:name="com.component.pharma.ui.home.fourthpage.FourthNavFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_fourth_nav" >
+        <action
+            android:id="@+id/action_fourthNavFragment_to_confirmFragment"
+            app:destination="@id/confirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmFragment"
+        android:name="com.component.pharma.ui.home.confirming.ConfirmFragment"
+        android:label="fragment_confirm"
+        tools:layout="@layout/fragment_confirm" >
+        <action
+            android:id="@+id/action_confirmFragment_to_cityFragment"
+            app:destination="@id/cityFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityFragment"
+        android:name="com.component.pharma.ui.home.city.CityFragment"
+        android:label="fragment_city"
+        tools:layout="@layout/fragment_city" >
+        <action
+            android:id="@+id/action_cityFragment_to_confirmFragment"
+            app:destination="@id/confirmFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endOrderFragment"
+        android:name="com.component.pharma.ui.home.confirming.EndOrderFragment"
+        android:label="fragment_end_order"
+        tools:layout="@layout/fragment_end_order" >
+        <action
+            android:id="@+id/action_endOrderFragment_to_firstNavFragment"
+            app:destination="@id/firstNavFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/promotionsFragment"
+        android:name="com.component.pharma.ui.home.firstpage.promotions.PromotionsFragment"
+        android:label="fragment_promotions"
+        tools:layout="@layout/fragment_promotions" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.component.pharma.ui.home.firstpage.search.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.component.pharma.ui.home.thirdpage.EditProfileFragment"
+        android:label="fragment_edit_profile"
+        tools:layout="@layout/fragment_edit_profile" />
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.component.pharma.ui.home.thirdpage.notification.NotificationFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.component.pharma.ui.home.thirdpage.orders.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" >
+        <action
+            android:id="@+id/action_ordersFragment_to_orderFragment"
+            app:destination="@id/orderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderFragment"
+        android:name="com.component.pharma.ui.home.thirdpage.orders.order.OrderFragment"
+        android:label="fragment_order"
+        tools:layout="@layout/fragment_order" />
+</navigation>

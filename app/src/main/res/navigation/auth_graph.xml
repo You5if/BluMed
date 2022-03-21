@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/auth_graph"
+    app:startDestination="@id/authFragment">
+
+    <fragment
+        android:id="@+id/authFragment"
+        android:name="com.component.pharma.ui.auth.AuthFragment"
+        android:label="Login/Sing up"
+        tools:layout="@layout/fragment_auth" />
+    <fragment
+        android:id="@+id/OTPFragment"
+        android:name="com.component.pharma.ui.auth.OTPFragment"
+        android:label="OTP code"
+        tools:layout="@layout/fragment_o_t_p" />
+    <fragment
+        android:id="@+id/connumFragment"
+        android:name="com.component.pharma.ui.auth.ConnumFragment"
+        android:label="fragment_connum"
+        tools:layout="@layout/fragment_connum" />
+</navigation>

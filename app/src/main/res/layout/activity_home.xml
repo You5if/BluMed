@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeActivity">
+
+
+    <!--    <com.google.android.material.bottomnavigation.BottomNavigationView-->
+    <!--        android:id="@+id/nav_view"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="0dp"-->
+    <!--        android:layout_marginEnd="0dp"-->
+    <!--        android:background="?android:attr/windowBackground"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:menu="@menu/bottom_nav_menu" />-->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorGrey"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <!--    <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+    <!--        android:id="@+id/fab"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginBottom="10dp"-->
+    <!--        android:src="@drawable/ic_search"-->
+    <!--        app:layout_anchor="@id/bottomAppBar"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="@+id/bottomAppBar"-->
+    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <fragment
+        android:id="@+id/nav_home_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_home_graph" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/card1"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="55dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/speech"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/tail1"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/triangle"
+        app:layout_constraintStart_toStartOf="@+id/card1"
+        app:layout_constraintTop_toBottomOf="@+id/card1" />
+
+    <TextView
+        android:id="@+id/skip1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Skip"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card1"
+        app:layout_constraintTop_toTopOf="@+id/card1" />
+
+    <TextView
+        android:id="@+id/next1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Next"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="@+id/card1"
+        app:layout_constraintTop_toTopOf="@+id/card1" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="This is home!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card1"
+        app:layout_constraintEnd_toEndOf="@+id/card1"
+        app:layout_constraintStart_toStartOf="@+id/card1" />
+
+
+    <!--    second-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/card2"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="115dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/speech"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/tail2"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/triangle"
+        app:layout_constraintStart_toStartOf="@+id/card2"
+        app:layout_constraintTop_toBottomOf="@+id/card2" />
+
+    <TextView
+        android:id="@+id/skip2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Skip"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card2"
+        app:layout_constraintStart_toStartOf="@+id/card2"
+        app:layout_constraintTop_toTopOf="@+id/card2" />
+
+    <TextView
+        android:id="@+id/prev2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Prev"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="@+id/card2"
+        app:layout_constraintTop_toTopOf="@+id/card2" />
+
+    <TextView
+        android:id="@+id/next2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Next"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card2"
+        app:layout_constraintTop_toTopOf="@+id/card2" />
+
+    <TextView
+        android:id="@+id/text2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="This is upload!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card2"
+        app:layout_constraintEnd_toEndOf="@+id/card2"
+        app:layout_constraintStart_toStartOf="@+id/card2" />
+
+
+    <!--    third-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/card3"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/speech3"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/tail3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/triangle"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="@+id/card3"
+        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintStart_toStartOf="@+id/card3"
+        app:layout_constraintTop_toBottomOf="@+id/card3" />
+
+    <ImageView
+        android:id="@+id/tail32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/triangle"
+        app:layout_constraintEnd_toEndOf="@+id/card3"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="@+id/card3"
+        app:layout_constraintTop_toBottomOf="@+id/card3" />
+
+    <TextView
+        android:id="@+id/skip3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Skip"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card3"
+        app:layout_constraintStart_toStartOf="@+id/card3"
+        app:layout_constraintTop_toTopOf="@+id/card3" />
+
+    <TextView
+        android:id="@+id/prev3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Prev"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="@+id/card3"
+        app:layout_constraintTop_toTopOf="@+id/card3" />
+
+    <TextView
+        android:id="@+id/next3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Next"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card3"
+        app:layout_constraintTop_toTopOf="@+id/card3" />
+
+    <TextView
+        android:id="@+id/text3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="This is search!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card3"
+        app:layout_constraintEnd_toEndOf="@+id/card3"
+        app:layout_constraintStart_toStartOf="@+id/card3" />
+
+
+    <!--    fourth-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/card4"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="115dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/speech2"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/tail4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/triangle"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="@+id/card4"
+        app:layout_constraintTop_toBottomOf="@+id/card4" />
+
+    <TextView
+        android:id="@+id/skip4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Skip"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card4"
+        app:layout_constraintStart_toStartOf="@+id/card4"
+        app:layout_constraintTop_toTopOf="@+id/card4" />
+
+    <TextView
+        android:id="@+id/prev4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Prev"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="@+id/card4"
+        app:layout_constraintTop_toTopOf="@+id/card4" />
+
+    <TextView
+        android:id="@+id/next4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Next"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card4"
+        app:layout_constraintTop_toTopOf="@+id/card4" />
+
+    <TextView
+        android:id="@+id/text4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="This is cart!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card4"
+        app:layout_constraintEnd_toEndOf="@+id/card4"
+        app:layout_constraintStart_toStartOf="@+id/card4" />
+
+    <!--        fifth-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/card5"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginRight="55dp"
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/speech2"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/tail5"
+        android:layout_width="wrap_content"
+
+        android:layout_height="wrap_content"
+        android:background="@drawable/triangle"
+        android:rotation="90"
+        app:layout_constraintEnd_toEndOf="@+id/card5"
+        app:layout_constraintTop_toBottomOf="@+id/card5" />
+
+    <TextView
+        android:id="@+id/finish5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:text="Finish"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/card5"
+        app:layout_constraintTop_toTopOf="@+id/card5" />
+
+    <TextView
+        android:id="@+id/prev5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Prev"
+        android:textColor="@color/BluMidDrak"
+        android:textSize="16sp"
+        android:translationZ="10dp"
+        app:layout_constraintStart_toStartOf="@+id/card5"
+        app:layout_constraintTop_toTopOf="@+id/card5" />
+
+    <TextView
+        android:id="@+id/text5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:text="This is profile!"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/card5"
+        app:layout_constraintEnd_toEndOf="@+id/card5"
+        app:layout_constraintStart_toStartOf="@+id/card5" />
+
+    <View
+        android:id="@+id/blocking_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:clickable="true"
+        android:focusable="true"
+        android:translationZ="9dp"
+        android:visibility="visible" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
