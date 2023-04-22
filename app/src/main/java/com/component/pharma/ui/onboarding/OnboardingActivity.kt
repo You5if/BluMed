@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -65,6 +66,8 @@ class OnboardingActivity : AppCompatActivity() {
 //                   binding.nextBtn2.visible(false)
                    binding.helloText.visible(true)
                    binding.step.text = "Step 1"
+                   binding.finishBtn.visibility = View.GONE
+                   binding.skipBtn.visibility = View.VISIBLE
                    binding.images.setImageResource(R.drawable.illust1)
                    binding.firstIndicator.setImageResource(R.drawable.viewpager_selected)
                    binding.secIndicator.setImageResource(R.drawable.viewpager_not_selected)
@@ -77,6 +80,8 @@ class OnboardingActivity : AppCompatActivity() {
 //                   binding.backBtn2.visible(false)
 //                   binding.backBtn1.visible(true)
                    binding.helloText.visible(false)
+                   binding.finishBtn.visibility = View.GONE
+                   binding.skipBtn.visibility = View.VISIBLE
                    binding.step.text = "Step 2"
                    binding.images.setImageResource(R.drawable.illust222)
                    binding.secIndicator.setImageResource(R.drawable.viewpager_selected)
@@ -93,6 +98,8 @@ class OnboardingActivity : AppCompatActivity() {
 //                   binding.backBtn1.visible(false)
                    binding.helloText.visible(false)
                    binding.step.text = "Step 3"
+                   binding.finishBtn.visibility = View.VISIBLE
+                   binding.skipBtn.visibility = View.GONE
                    binding.images.setImageResource(R.drawable.illust33png)
                    binding.firstIndicator.setImageResource(R.drawable.viewpager_not_selected)
                    binding.secIndicator.setImageResource(R.drawable.viewpager_not_selected)
@@ -176,6 +183,12 @@ class OnboardingActivity : AppCompatActivity() {
 //            }
 //        }
         binding.skipBtn.setOnClickListener {
+            lifecycleScope.launch {
+                viewModel.onboardingFinished(finshed = "finished")
+                startNewActivity(AuthActivity::class.java)
+            }
+        }
+        binding.finishBtn.setOnClickListener {
             lifecycleScope.launch {
                 viewModel.onboardingFinished(finshed = "finished")
                 startNewActivity(AuthActivity::class.java)

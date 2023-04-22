@@ -39,15 +39,22 @@ class OrdersFragment : BaseFragment<HomeViewModel, FragmentOrdersBinding, HomeRe
         viewModel.AllOrdersResponse.observe(viewLifecycleOwner, Observer { response ->
             binding.shimmerFrameLayout.stopShimmerAnimation()
             binding.shimmerFrameLayout.visible(response is Resource.Loading)
-            binding.rvOrders.visibility = View.VISIBLE
+
+
             when (response) {
                 is Resource.Success -> {
+                    if (response.value.isEmpty()) {
+                        binding.noOrders.visibility = View.VISIBLE
+                    }else {
+                        binding.rvOrders.visibility = View.VISIBLE
+                    }
                     lifecycleScope.launch {
                         binding.rvOrders.apply {
                             ordersAdapter = OrdersAdapter(response.value)
                             adapter = ordersAdapter
                             layoutManager = LinearLayoutManager(context)
                         }
+
                         ordersAdapter.setOnItemClickListener { order ->
                             bundle = Bundle().apply {
 

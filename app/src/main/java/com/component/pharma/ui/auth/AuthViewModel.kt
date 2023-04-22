@@ -21,6 +21,12 @@ class AuthViewModel (
     private val _userProfileResponse : MutableLiveData<Resource<Any>> = MutableLiveData()
     private val _otpResponse : MutableLiveData<Resource<OtpResponse>> = MutableLiveData()
 
+//    private val _keyEvent:MutableLiveData<Int> = MutableLiveData(-1)
+//    val keyEvent:LiveData<Int> get() = _keyEvent
+//
+//    fun setEvent(code:Int){
+//        _keyEvent.value = code
+//    }
 
     val loginResponse: LiveData<Resource<Any>>
         get() = _loginResponse

@@ -2,6 +2,7 @@ package com.component.pharma.ui.upload
 
 import android.annotation.SuppressLint
 import android.app.Activity
+import android.app.Activity.RESULT_CANCELED
 import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
@@ -52,16 +53,17 @@ class UploadFragment : BaseFragment<UploadViewModel, FragmentUploadBinding, Uplo
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val options2 = arrayOf("Upload image", "Take photo")
+//        val options2 = arrayOf("Upload image", "Take photo")
+        val options2 = arrayOf("Upload image")
         val askChoices = AlertDialog.Builder(requireContext())
                 .setItems(options2){ _, pos ->
                     when (pos) {
                         0 -> {
                             openImageChooser()
                         }
-                        1 -> {
-                            openCamera()
-                        }
+//                        1 -> {
+//                            openCamera()
+//                        }
 
                     }
                 }
@@ -225,13 +227,15 @@ class UploadFragment : BaseFragment<UploadViewModel, FragmentUploadBinding, Uplo
 //            }
 //        }
 //    }
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+
         if(resultCode == Activity.RESULT_OK) {
-            when(requestCode) {
-                REQUEST_CODE_IMAGE_PICKER -> {
-                    selectedImage = data?.data
-                    binding.imageView.setImageURI(selectedImage)
+                when (requestCode) {
+                    REQUEST_CODE_IMAGE_PICKER -> {
+                        selectedImage = data?.data
+                        binding.imageView.setImageURI(selectedImage)
 //                    binding.cpPbar.visibility = View.GONE
 //                    binding.btnUpload.visibility = View.VISIBLE
                     binding.imageView.visibility = View.VISIBLE
@@ -242,7 +246,7 @@ class UploadFragment : BaseFragment<UploadViewModel, FragmentUploadBinding, Uplo
                     binding.successMessage.visibility = View.GONE
                 }
                 REQUEST_CODE_CAMERA -> {
-                    var bmp = data?.extras?.get("data") as Bitmap
+                    val bmp = data?.extras?.get("data") as Bitmap
                     selectedImage = context?.let { getImageUri(it, bmp) }
                     binding.imageView.visibility = View.VISIBLE
                     binding.imageText.visibility = View.GONE
@@ -258,7 +262,7 @@ class UploadFragment : BaseFragment<UploadViewModel, FragmentUploadBinding, Uplo
     fun getImageUri(inContext: Context, inImage: Bitmap): Uri? {
         val bytes = ByteArrayOutputStream()
         inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes)
-        val path = Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null)
+        val path = Images.Media.insertImage(inContext.contentResolver, inImage, "Title", null)
         return Uri.parse(path)
     }
 

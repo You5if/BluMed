@@ -11,16 +11,14 @@
         android:id="@+id/textView17"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:layout_constraintVertical_bias="0.05"
         android:text="Welcome to BluMed"
         android:textColor="@color/BluMidDrak"
         android:gravity="center"
         android:layout_marginRight="20dp"
         android:textSize="30sp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="20dp"
         android:textStyle="bold"
-
+        app:layout_constraintBottom_toTopOf="@id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +30,7 @@
         android:layout_marginRight="20dp"
         android:layout_height="100dp"
         android:src="@drawable/handphone"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        app:layout_constraintBottom_toTopOf="@+id/number"
         app:layout_constraintEnd_toEndOf="parent"
 
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +48,6 @@
         app:layout_constraintEnd_toEndOf="@+id/number"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="@+id/number"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.95" />
 
 
@@ -64,10 +61,10 @@
         android:text="+249"
         android:textColor="@color/BluMidDrak"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton2"
+        app:layout_constraintBottom_toBottomOf="@id/number"
 
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@id/number"
         app:layout_constraintVertical_bias="0.7" />
 
 
@@ -102,7 +99,7 @@
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
         app:layout_constraintVertical_bias="0.7" />
 
     <TextView
@@ -116,7 +113,7 @@
         android:gravity="center"
         android:text="@string/Proceed"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

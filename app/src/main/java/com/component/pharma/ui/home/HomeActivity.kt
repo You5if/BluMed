@@ -131,7 +131,7 @@ class HomeActivity : AppCompatActivity() {
         val intent = Intent(applicationContext, HomeActivity::class.java)
         val pendingIntent = TaskStackBuilder.create(applicationContext).run {
             addNextIntentWithParentStack(intent)
-            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
         }
 
 

@@ -3,10 +3,14 @@ package com.component.pharma.ui.auth
 
 import android.content.Context
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
@@ -56,10 +60,55 @@ class AuthFragment : BaseFragment<AuthViewModel, FragmentAuthBinding, AuthReposi
 
         binding.invalidPhoneNum.visible(false)
 
+        binding.materialButton2.isEnabled = false
+        binding.materialButton2.setBackgroundResource(R.drawable.roundback)
+        binding.materialButton2.setTextColor(ContextCompat.getColor(binding.materialButton2.context, R.color.white))
 
 
 
-//        binding.number.requestFocus()
+        binding.number.requestFocus()
+        binding.number.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                binding.number.setOnKeyListener(View.OnKeyListener { v, keyCode, event -> // You can identify which key pressed buy checking keyCode value
+                    // with KeyEvent.KEYCODE_
+
+                        if (binding.number.text.length == 9) {
+                            binding.materialButton2.isEnabled = true
+                            binding.materialButton2.setBackgroundResource(R.drawable.roundblue)
+                            binding.materialButton2.setTextColor(ContextCompat.getColor(binding.materialButton2.context, R.color.white))
+
+                        }else {
+                            binding.materialButton2.isEnabled = false
+                            binding.materialButton2.setBackgroundResource(R.drawable.roundback)
+                            binding.materialButton2.setTextColor(ContextCompat.getColor(binding.materialButton2.context, R.color.white))
+
+                        }
+
+
+                    false
+                })
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+
+
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (binding.number.text.length == 9) {
+                    binding.materialButton2.isEnabled = true
+                    binding.materialButton2.setBackgroundResource(R.drawable.roundblue)
+                    binding.materialButton2.setTextColor(ContextCompat.getColor(binding.materialButton2.context, R.color.white))
+
+                }else {
+                    binding.materialButton2.isEnabled = false
+                    binding.materialButton2.setBackgroundResource(R.drawable.roundback)
+                    binding.materialButton2.setTextColor(ContextCompat.getColor(binding.materialButton2.context, R.color.white))
+
+                }
+            }
+        })
 
 
         binding.materialButton2.setOnClickListener {

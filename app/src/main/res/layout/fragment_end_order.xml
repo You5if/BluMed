@@ -48,7 +48,7 @@
         android:gravity="center"
         android:text="Shop again"
         android:textColor="@color/white"
-        android:textSize="28sp"
+        android:textSize="22sp"
         app:layout_constraintVertical_bias="0.1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

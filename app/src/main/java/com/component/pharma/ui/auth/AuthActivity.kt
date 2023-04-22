@@ -3,8 +3,10 @@ package com.component.pharma.ui.auth
 import android.content.Context
 import android.os.Bundle
 import android.util.DisplayMetrics
+import android.view.KeyEvent
 import android.view.WindowManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +15,7 @@ import com.component.pharma.R
 
 
 class AuthActivity : AppCompatActivity() {
+    private val viewModel:AuthViewModel by viewModels()
     private val navController by lazy { findNavController(R.id.fragment2) } //1
     private val appBarConfiguration by lazy {
         AppBarConfiguration(
@@ -42,5 +45,13 @@ class AuthActivity : AppCompatActivity() {
         val height = metrics.heightPixels
         return "{$width,$height}"
     }
+//    override fun onKeyUp(keyCode: Int, event: KeyEvent?): Boolean {
+//        return if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN
+//            || keyCode == KeyEvent.KEYCODE_VOLUME_UP){
+//            viewModel.setEvent(keyCode)
+//            true
+//        } else super.onKeyUp(keyCode, event)
+//    }
+
 
 }

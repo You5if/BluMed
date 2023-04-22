@@ -134,7 +134,7 @@ class ConfirmFragment : BaseFragment<HomeViewModel, FragmentConfirmBinding, Home
                     findNavController().navigate(R.id.endOrderFragment)
                 }
                 is Resource.Failure -> {
-                    Toast.makeText(context, "${res.errorCode}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "there is an error, Order later", Toast.LENGTH_SHORT).show()
                 }
             }
         })

@@ -7,9 +7,11 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+
 class RetrofitInstance {
     companion object{
-        public const val BASE_URL = "http://pharmacyapi.autopay-mcs.com/api/"
+        public const val BASE_URL = "http://49.50.77.201/pharmacyapi/api/"
+//        public const val BASE_URL = "http://pharmacyapi.autopay-mcs.com/api/"
     }
 
     fun<Api> buildApi (

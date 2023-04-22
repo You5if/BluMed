@@ -43,9 +43,14 @@ class NotificationFragment  : BaseFragment<HomeViewModel, FragmentNotificationBi
         viewModel.AllNotificationsResponse.observe(viewLifecycleOwner, Observer { response ->
             binding.shimmerFrameLayout.stopShimmerAnimation()
             binding.shimmerFrameLayout.visible(response is Resource.Loading)
-            binding.rvNotification.visibility = View.VISIBLE
+
             when(response) {
                 is Resource.Success -> {
+                    if (response.value.isEmpty()) {
+                        binding.noNotifications.visibility = View.VISIBLE
+                    }else {
+                        binding.rvNotification.visibility = View.VISIBLE
+                    }
                     lifecycleScope.launch {
                         binding.rvNotification.apply {
                             notificationAdapter = NotificationAdapter(response.value)

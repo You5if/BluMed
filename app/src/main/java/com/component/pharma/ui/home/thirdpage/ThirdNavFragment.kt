@@ -148,7 +148,7 @@ class ThirdNavFragment : BaseFragment<HomeViewModel, FragmentThirdNavBinding, Ho
         val intent = Intent(requireContext(), HomeActivity::class.java)
         val pendingIntent = TaskStackBuilder.create(requireContext()).run {
             addNextIntentWithParentStack(intent)
-            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT)
+            getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE)
         }
 
         val notification = NotificationCompat.Builder(requireContext(), CHANNEL_ID)

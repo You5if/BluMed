@@ -26,6 +26,7 @@ import com.component.pharma.ui.home.firstpage.FirstNavViewModel
 import com.component.pharma.ui.home.firstpage.ProductAdapter
 import com.google.android.material.badge.BadgeDrawable
 import kotlinx.coroutines.launch
+import kotlin.math.roundToInt
 
 
 class FourthNavFragment : BaseFragment<HomeViewModel, FragmentFourthNavBinding, HomeRepository>() {
@@ -59,10 +60,11 @@ class FourthNavFragment : BaseFragment<HomeViewModel, FragmentFourthNavBinding, 
 
                 cartAdapter.setData(it)
                 totalPrice = 0.00
-                binding.total.text = totalPrice.toString()
+                binding.total.text = totalPrice.toString().format("%.2f", totalPrice).toDouble().toString()
                 for (product in it){
                     totalPrice += product.price * product.quantity
-                    binding.total.text = totalPrice.toString()
+                    totalPrice = (totalPrice * 100).roundToInt().toDouble() / 100
+                    binding.total.text = totalPrice.toString().format("%.2f", totalPrice).toDouble().toString()
                 }
             } else {
                 binding.rvCart.visibility = View.GONE
@@ -82,14 +84,16 @@ class FourthNavFragment : BaseFragment<HomeViewModel, FragmentFourthNavBinding, 
                 viewModel.deleteProduct(it2)
                     viewModel.getSavedProduct().observe(viewLifecycleOwner, Observer {
                         cartAdapter.setData(it)
+                        cartAdapter.notifyDataSetChanged()
                         totalPrice = 0.00
                         if (it.size == 0) {
                             totalPrice = 0.00
-                            binding.total.text = totalPrice.toString()
+                            binding.total.text = totalPrice.toString().format("%.2f", totalPrice).toDouble().toString()
                         }else{
                             for (product in it){
                                 totalPrice += product.price * product.quantity
-                                binding.total.text = totalPrice.toString()
+                                totalPrice = (totalPrice * 100).roundToInt().toDouble() / 100
+                                binding.total.text = totalPrice.toString().format("%.2f", totalPrice).toDouble().toString()
                             }
                         }
 
@@ -98,16 +102,18 @@ class FourthNavFragment : BaseFragment<HomeViewModel, FragmentFourthNavBinding, 
             } else {
 
                 it2.quantity -= 1
-                cartAdapter.notifyDataSetChanged()
-                viewModel.updateProduct(it2)
                 viewModel.getSavedProduct().observe(viewLifecycleOwner, Observer {
                     cartAdapter.setData(it)
+                    cartAdapter.notifyDataSetChanged()
                     totalPrice = 0.00
                     for (product in it){
                         totalPrice += product.price * product.quantity
-                        binding.total.text = totalPrice.toString()
+                        totalPrice = (totalPrice * 100).roundToInt().toDouble() / 100
+                        binding.total.text = totalPrice.toString().format("%.2f", totalPrice).toDouble().toString()
                     }
                 })
+
+                viewModel.updateProduct(it2)
 
 
 
@@ -117,16 +123,20 @@ class FourthNavFragment : BaseFragment<HomeViewModel, FragmentFourthNavBinding, 
 
         cartAdapter.setOnItemClickListener1 { it3 ->
             it3.quantity += 1
-            cartAdapter.notifyDataSetChanged()
-            viewModel.updateProduct(it3)
+
+
             viewModel.getSavedProduct().observe(viewLifecycleOwner, Observer {
                 cartAdapter.setData(it)
+                cartAdapter.notifyDataSetChanged()
                 totalPrice = 0.00
                 for (product in it){
                     totalPrice += product.price * product.quantity
-                    binding.total.text = totalPrice.toString()
+                    totalPrice = (totalPrice * 100).roundToInt().toDouble() / 100
+                    binding.total.text = totalPrice.toString().format("%.2f", totalPrice).toDouble().toString()
+
                 }
             })
+            viewModel.updateProduct(it3)
 
 
         }

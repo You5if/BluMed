@@ -38,9 +38,11 @@ class CartAdapter() : RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
             quantity.text = record.quantity.toString()
 
             holder.binding.reomve.setOnClickListener {
+
                 onItemClickListener2?.let { it(record) }
             }
             holder.binding.add.setOnClickListener {
+
                 onItemClickListener1?.let { it(record) }
             }
 

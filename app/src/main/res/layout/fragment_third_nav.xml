@@ -22,6 +22,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/etInitial"
         android:layout_width="150dp"
@@ -30,11 +31,12 @@
         android:gravity="center"
         android:textColor="@color/white"
         android:textSize="80sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.16" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
 <!--    <ImageView-->
 <!--        android:id="@+id/etProUser"-->
@@ -95,15 +97,13 @@
         android:id="@+id/userName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
         android:text="User User"
         android:textColor="@color/black"
-        app:layout_constraintVertical_bias="0.35"
         android:textSize="26sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/etInitial" />
 
     <ImageView
         android:id="@+id/nameEditBtn"
@@ -127,11 +127,11 @@
         android:text="Notifications"
         android:textColor="@color/black"
         android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userName"
-        app:layout_constraintVertical_bias="0.1" />
+        />
 
     <TextView
         android:id="@+id/notification_badge"
@@ -169,7 +169,6 @@
         android:layout_width="150dp"
         android:layout_height="50dp"
 
-        android:layout_marginTop="10dp"
         android:background="@drawable/redroundimage"
         android:gravity="center"
         android:text="Logout"
@@ -178,7 +177,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/notification" />
+        app:layout_constraintTop_toBottomOf="@+id/orders" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

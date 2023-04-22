@@ -34,8 +34,9 @@ class SearchFragment : BaseFragment<HomeViewModel, FragmentSearchBinding, HomeRe
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        productAdapter = ProductAdapter()
         binding.etSearch.requestFocus()
+        productAdapter = ProductAdapter()
+
 
         binding.backArrow.setOnClickListener {
             findNavController().navigate(R.id.firstNavFragment)
